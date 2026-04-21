@@ -1,41 +1,62 @@
-const btns = document.querySelectorAll(".btn"); //Denne her variabel gælder for alle elementer, som har class'en "btn"
-// Test ved at bruge "undersøg" i browser --> åben console --> søg btns --> se dem dukke op
+// ==================== HENT ELEMENTER ==================== //
 
+// Henter alle knapper med class "btn"
+const btns = document.querySelectorAll(".btn");
+
+// Henter alle "stages" (sektioner)
 const stages = document.querySelectorAll(".stage");
 
+
+// ==================== FUNKTION: VIS STAGE ==================== //
+
 const showStage = (index) => {
-    // fjern active fra alle
+    // Loop igennem alle stages og fjern "active"
     for (const stage of stages) {
         stage.classList.remove("active");
     }
-}
 
-    // tilføj active til den ønskede
+    // Tilføj "active" til den stage vi vil vise
     stages[index].classList.add("active");
+};
+
+
+// ==================== FUNKTION: NÅR DER KLIKKES ==================== //
 
 const nextStage = (e) => {
-    switch(e.target.textContent) {
-        
+
+    // Henter teksten fra den knap der blev klikket
+    const text = e.target.textContent.trim();
+
+    // Switch bruges til at reagere forskelligt afhængig af knap
+    switch(text) {
+
         case "Start":
-            showStage(1); //gå til stage 1
-        break;
+            // Gå til næste stage (index 1)
+            showStage(1);
+            break;
 
         case "Option 1":
             alert("Du valgte option 1");
-        break;
+            break;
 
         case "Option 2":
             alert("Du valgte option 2");
-        break;
+            break;
 
         case "Option 3":
             alert("Du valgte option 3");
-        break;
+            break;
 
-        default: console.log("Don't Know"); //Fejlmeddelelse til os selv, hvis den ikke "kender" knappen
+        default:
+            // Hvis noget ikke matcher
+            console.log("Don't know");
     }
-}
+};
 
-for (const btn of btns) { //For hver element, der har denne class (btn), skal der ske noget
-    btn.addEventListener("click", nextStage); //Hvad den skal lytte efter? = "click" --> Hvad skal den gøre? = funktionen "nextStage"
-} 
+
+// ==================== EVENT LISTENERS ==================== //
+
+// For hver knap → lyt efter klik
+for (const btn of btns) {
+    btn.addEventListener("click", nextStage);
+}
