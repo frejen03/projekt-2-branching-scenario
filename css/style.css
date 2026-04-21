@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+main {
+  background-color: #02142b;
+  color: #cff6ea;
+  min-height: 100vh;
+}
+
+.stage {
+  background-color: #cff6ea;
+  color: #02142b;
+  display: none;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1rem;
+}
+.stage.active {
+  display: block;
+}
+.stage .btn {
+  background-color: #6623b8;
+  border: none;
+  border-radius: 1rem;
+  color: #cff6ea;
+  padding: 0.5rem;
+}
+.stage .btn:hover {
+  background-color: #fa3292;
+}/*# sourceMappingURL=style.css.map */

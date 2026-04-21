@@ -1,0 +1,51 @@
+//====================VARIABLER====================//
+
+//FARVER
+$bg: #02142b;
+$primaryColor: #cff6ea;
+$cta: #6623b8;
+$cta-hover: #fa3292;
+
+//LAYOUT
+$space: 1rem;
+
+//=================================================//
+
+* {
+    box-sizing: border-box; //100% af skærmen vil faktisk være 100%
+    margin: 0; //Så der ikke er automatisk definerede margins på elementer
+}
+
+//======================SIDEN======================//
+//=        Laila's rækkefølge er alfabetisk      =//
+main {
+    background-color: $bg;
+    color: $primaryColor;
+    min-height: 100vh; //Hvis indholdet ikke fylder hele siden, så sørg for baggrunden alligevel gør
+}
+
+//=================INDHOLD PÅ SIDEN================//
+.stage {
+    background-color: $primaryColor;
+    color: $bg;
+    display: none; //Intet vises uden class'en "&.active"
+    margin: 0 auto; //Centrering af et block-element (her-> Top+bund=0 & Sider=auto)
+    max-width: 800px; //px okay her, da den stadig er responsiv pga "max"
+    padding: $space;
+
+    &.active { // Altså en class "&" "active"
+        display: block; //Kan gøre ting synligt igen
+    }
+
+    .btn {
+        background-color: $cta;
+        border: none; //Fjerner border
+        border-radius: $space; //Runde hjørner
+        color: $primaryColor;
+        padding: $space/2; //Padding værdi er altså halvdelen af space-værdien
+    }
+    
+    .btn:hover {
+        background-color: $cta-hover; //Farven på hover kaldes
+    }
+}
